@@ -1,0 +1,32 @@
+#solving cubic polynomial
+import fractions
+
+cp = []
+
+cp.append(int(input("coefficient of x^3:")))
+cp.append(int(input("coefficient of x^2:")))
+cp.append(int(input("coefficient of x:")))
+cp.append(int(input("constant:")))
+print("\nf(x) = %dx^3 + %dx^2 + %dx + %d"%(cp[0],cp[1],cp[2],cp[3]))
+
+def f(x):
+    return cp[0]*x**3 + cp[1]*x**2 + cp[2]*x + cp[3]
+
+
+while True:
+    k_n, k_d =input("Leave this in a fraction, 'numerator denominator'. Value of k in Factor of Polynomial (x-k):").split()
+    k_n = int(k_n)
+    k_d = int(k_d)
+    k = (k_n/k_d)
+    if f(k) == 0:
+        k_1 = k
+        break
+    else:
+        print("Incorrect, try again")
+
+#quadpoly[1] is mathematically an unknown
+quadpoly=[cp[0]/k_d,0,cp[3]/(k_n)]
+
+#By comparing the original f(x) to the now once factorised equation, find quadpoly [1]
+
+#factorise quadpoly

@@ -25,8 +25,14 @@ while True:
         print("Incorrect, try again")
 
 #quadpoly[1] is mathematically an unknown
-quadpoly=[cp[0]/k_d,0,cp[3]/(k_n)]
+quadpoly=[float(cp[0]/k_d),0,(cp[3]/(k_n))]
 
 #By comparing the original f(x) to the now once factorised equation, find quadpoly [1]
-
+k_n = float(k_n)
+quadpoly[1] = (cp[2]-k_d*quadpoly[2])/k_n
 #factorise quadpoly
+d=quadpoly[1]**2-4*quadpoly[0]*quadpoly[2]
+if d < 0:
+  print("complete square")
+if d >= 0:
+  print("normal quadratic factorisation")
